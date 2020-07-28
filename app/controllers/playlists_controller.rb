@@ -2,7 +2,7 @@ class PlaylistsController < ApplicationController
     before_action :find_params, only: [:show, :edit, :update, :destroy]
 
     def index
-        @playlists = Playlist.all
+        @playlists = Playlist.search(params[:search])
     end
 
     def show

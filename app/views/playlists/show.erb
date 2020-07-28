@@ -1,2 +1,5 @@
 <h1>Your Jamms!</h1>
 <%= @playlist.name %>
+<br>
+
+<%= button_to "Edit Playlist", "/edit", {method: :patch, params: {@playlist_id: @playlist.id}} %>

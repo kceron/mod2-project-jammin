@@ -1,7 +1,11 @@
-<h1 style='margin-top:100px;font-size:2rem'>Playlists!</h1>
+<h1>Playlists!</h1>
 
-<% @playlists.each do |playlist| %>
-  <h1 style='font-size:1.5rem;margin-top:50px'>Playlist Name:
-      <%= link_to playlist.name, playlist %>
-  </h1>
+<%= form_tag playlists_path, method: :get do %>
+  <%= text_field_tag :search, params[:search], list: "name" %>
+  <datalist id="name">
+    <% Playlist.all.each do |playlist| %>
+      <option value="<%= playlist.name %>"></option>
+    <% end %>
+  </datalist>
+  <%= submit_tag "Search", name: nil %>
 <% end %>
