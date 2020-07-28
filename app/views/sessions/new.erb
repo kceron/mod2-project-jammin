@@ -1,9 +1,5 @@
 <h2>Log In</h2>
-<% if @errors %>
-  <% @errors.each do |error| %>
-    <%= error %><br>
-  <% end %>
-<% end %>
+<p id="alert"><%= alert %></p>
 
 <%= form_tag sessions_path do %>
   <%= label_tag :username %>
