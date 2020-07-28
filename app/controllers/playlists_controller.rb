@@ -39,7 +39,7 @@ class PlaylistsController < ApplicationController
     def destroy
         @playlist.destroy
         flash[:notice] = "Playlist deleted."
-        redirect_to songs_path
+        redirect_to playlists_path
     end
 
     private
