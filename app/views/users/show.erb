@@ -1,3 +1,12 @@
-<h2><%= @user.username %></h2>
+<h1>Welcome, <%= login.name %>!</h1>
+
+<%= link_to "Create a New Playlist", new_playlist_path %>
+
+<h3>Playlists You've Created<h3>
+<ul>
+<% @user.playlists.each do |playlist| %>
+  <li><%=link_to playlist.name, playlist %></li>
+<% end %>
+</ul>
 
 

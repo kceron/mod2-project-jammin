@@ -1,0 +1,22 @@
+<h1>All Songs</h1>
+
+<%= form_tag songs_path, method: :get do %>
+  <%= text_field_tag :search, params[:search], list: "title" %>
+  <datalist id="title">
+    <% Song.all.each do |song| %>
+      <option value="<%= song.title %>"></option>
+      <option value="<%= song.artist.name %>"></option>
+      <option value="<%= song.genre.name %>"></option>
+    <% end %>
+  </datalist>
+  <%= submit_tag "Search", title: nil %>
+<% end %>
+
+<% @songs.each do |song| %>
+  <h3><%= song.title %></h3>
+  <ul>
+  <li>Artist: <%= song.artist.name %></li>
+  <li>Genre: <%= song.genre.name %></li>
+  <li>Length: <%= song.duration %></li>
+  </ul>
+<% end %>
