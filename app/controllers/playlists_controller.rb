@@ -14,7 +14,7 @@ class PlaylistsController < ApplicationController
     end
 
     def create
-        @playlist = playlist.new(playlist_params)
+        @playlist = Playlist.create(playlist_params)
     
         if @playlist.save
           redirect_to @playlist
