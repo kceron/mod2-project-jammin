@@ -6,7 +6,7 @@ class Playlist < ApplicationRecord
   #search button
   def self.search(search)
     if search.present? 
-       where("TITLE like ?", "%#{search}%")
+       where("NAME like ?", "%#{search}%")
     else
        self.all
     end
