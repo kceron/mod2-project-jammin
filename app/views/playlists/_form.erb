@@ -1,6 +1,13 @@
 <%= form_for @playlist  do |f| %>
+  <%= f.hidden_field :user_id, value: "#{login.id}" %>
   <p>Playlist <%= f.label :name %></p>
   <%= f.text_field :name %><br><br>
+  <br>
+  <%= f.collection_check_boxes(:song_ids, Song.all, :id, :title) %>
+  <%= f.fields_for :songs, @playlist.songs.build do |songs_fields| %>
+  <% end %><br><br>
 
   <%= f.submit %>
 <% end %>
+
+<%# songs_fields.text_field :title %>
