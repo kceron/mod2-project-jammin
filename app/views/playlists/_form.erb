@@ -5,6 +5,7 @@
   <br>
   <%= f.collection_check_boxes(:song_ids, Song.all, :id, :title) %>
   <%= f.fields_for :songs, @playlist.songs.build do |songs_fields| %>
+ 
   <% end %><br><br>
 
   <%= f.submit %>
