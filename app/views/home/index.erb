@@ -1,10 +1,13 @@
+
 <center>
   <h1>JammIn</h1>
 </center>
 
-<div>
+
+<div class="button">
 <h2>
-  <%= link_to "Create an account", new_user_path, class: "sign_up" %> or <%= link_to "Log in", login_path, class: "log_in" %>
+<button type="button" class="btn btn-secondary"><%= link_to "Create an account", new_user_path, id:"sign_up" %> </button> 
+<button type="button" class="btn btn-secondary"><%= link_to "Log in", login_path, id:"log_in" %> </button>
 </h2>
 </div>
 

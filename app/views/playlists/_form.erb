@@ -1,9 +1,17 @@
 <%= form_for @playlist  do |f| %>
   <%= f.hidden_field :user_id, value: "#{login.id}" %>
   <p>Playlist <%= f.label :name %></p>
-  <%= f.text_field :name %><br><br>
-  <br>
-  <%= f.collection_check_boxes(:song_ids, Song.all, :id, :title) %>
-  <br>
-  <%= f.submit %>
+
+  <%= f.text_field :name %>
+  <%= ((f.submit "Update Name") if @playlist.id ) %>
+  <%= ((f.submit "Create Playlist") if !@playlist.id ) %>
 <% end %>
+
+  <% @playlist.song_playlists.each do |song_playlist| %>
+    <%= song_playlist.song.title %>    <%= song_playlist.song.length_to_minutes_and_seconds %><br>
+    
+    <%= button_to '🛑', song_playlist, method: :delete, params: {song_id: song_playlist.song.id, playlist_id: @playlist.id} %>
+<% end %>
+
+
+

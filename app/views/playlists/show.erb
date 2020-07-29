@@ -4,9 +4,11 @@
 <p>This playlist is <%= @playlist.playlist_length%> long.</p>
 <h3>Songs</h3>
 <% @playlist.songs.each do |song| %>
-    <%= song.title %> | <%= song.duration %><br>
+
+    <%= song.title %> | <%= song.length_to_minutes_and_seconds %><br>
     <%# <iframe src="https://open.spotify.com/embed/track/<%= song.track_id " width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> %>
  <br>
+
 <% end %>
 
 <br><br>

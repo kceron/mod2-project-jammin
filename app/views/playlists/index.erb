@@ -9,4 +9,8 @@
   </datalist>
   <%= submit_tag "Search", name: nil %>
 <% end %>
+<br>
 
+<% @playlists.each do |playlist| %>
+  <%= link_to playlist.name, playlist %> <br> 
+<% end%>
