@@ -2,7 +2,8 @@
 <%= @playlist.name %>
 <br>
 <% @playlist.songs.each do |song| %>
-    <%= song.title %> | <%= song.duration %><br>
+    <%= song.title %> | <%= song.length_to_minutes_and_seconds %><br>
+     
 <% end %>
 <br><br>
 <% if @playlist.user_id == session[:user_id] %>
