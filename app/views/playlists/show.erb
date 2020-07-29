@@ -4,9 +4,12 @@
 <p>This playlist is <%= @playlist.playlist_length%> long.</p>
 <h3>Songs</h3>
 <% @playlist.songs.each do |song| %>
-
     <%= song.title %> | <%= song.length_to_minutes_and_seconds %><br>
-    <%# <iframe src="https://open.spotify.com/embed/track/<%= song.track_id " width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> %>
+    <%if song.source == "Spotify" %>
+         <iframe src="https://open.spotify.com/embed/track/<%= song.embed_key%>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> 
+    <% elsif song.source == "YouTube" %>
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= song.embed_key%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+    <% end %>
  <br>
 
 <% end %>
@@ -27,10 +30,9 @@
 
 <%# <iframe src="https://open.spotify.com/embed/track/<%= song.track_id " width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> %>
 
-<%# - add two columns to our database: source and embed key
-    - re-seed DB
+<%# 
     - gettings songs to show where they should 
-        - playlist
+        - playlist show
         - song index
     - write a form to add a new song 
     - create method needs to parse the URL for the embed key

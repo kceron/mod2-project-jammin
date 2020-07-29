@@ -42,31 +42,41 @@ Song.create([
     title: "Backstreet's Back",
     duration: 180,
     artist_id: 3,
-    genre_id: 1
+    genre_id: 1,
+    source: "Spotify",
+    embed_key: "5WTxbyWTpoqhdxEN2szOnl"
   },
   {
     title: "Born in the USA",
     duration: 192,
     artist_id: 1,
-    genre_id: 2
+    genre_id: 2,
+    source: "Spotify",
+    embed_key: "0dOg1ySSI7NkpAe89Zo0b9"
   },
   {
     title: "Singing in the Rain",
     duration: 176,
     artist_id: 2,
-    genre_id: 1
+    genre_id: 1,
+    source: "YouTube",
+    embed_key: "D1ZYhVpdXbQ"
   },
   {
     title: "I Wanna Dance with Somebody",
     duration: 200,
     artist_id: 5,
-    genre_id: 1
+    genre_id: 1,
+    source: "Spotify",
+    embed_key: "2tUBqZG2AbRi7Q0BIrVrEj"
   },
   {
     title: "Poison",
     duration: 210,
     artist_id: 3,
-    genre_id: 3
+    genre_id: 3,
+    source: "YouTube",
+    embed_key: "YejxyaFyUHc"
   }
 ])
 
