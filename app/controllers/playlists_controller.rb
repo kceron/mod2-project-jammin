@@ -1,5 +1,6 @@
 class PlaylistsController < ApplicationController
     before_action :find_params, only: [:show, :edit, :update, :destroy]
+    before_action :authorize
 
     def index
         @playlists = Playlist.all
@@ -14,13 +15,12 @@ class PlaylistsController < ApplicationController
     end
 
     def create
-        @playlist = Playlist.create(playlist_params)
-    
-        if @playlist.save
-          redirect_to @playlist
-        else
-          render :new
-        end
+      @playlist = Playlist.create(playlist_params)
+      if @playlist.save
+        redirect_to @playlist
+      else
+        render :new
+      end
     end
     
     def edit

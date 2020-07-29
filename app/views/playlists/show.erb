@@ -1,2 +1,8 @@
 <h1>Your Jamms!</h1>
 <%= @playlist.name %>
+<br><br>
+<% if @playlist.user_id == session[:user_id] %>
+<%= link_to "Edit this playlist", edit_playlist_path %>
+<br><br>
+<%= link_to "Delete this playlist", @playlist, method: :delete %>
+<% end %>

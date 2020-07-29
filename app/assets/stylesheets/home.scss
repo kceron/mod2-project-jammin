@@ -1,15 +1,17 @@
-body {
+body.home {
     background-image: url("tape.jpg");
-    background-size: cover;
+    background-size: cover; 
+    // certain size? and then background color?
 }
 
-h1 {
+body.home h1 {
     font-size: 60px;
     font-family: 'Shadows Into Light Two';
-    padding-top: 110px;
+    margin: 0;
+    padding: 10%;
   }
 
-h2 {
+body.home h2 {
     padding-top: 300px;
     text-align: center;
 }
