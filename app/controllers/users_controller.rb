@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:id])
+        @user = User.find(login.id)
     end
 
     def new
@@ -24,6 +24,13 @@ class UsersController < ApplicationController
           redirect_to new_user_path
         end
     end
+
+    # def destroy
+    #     @user = User.find(params[:id])
+    #     @user.destroy
+    #     flash[:notice] = "Profile deleted."
+    #     redirect_to users_path
+    # end
      
     private
      
