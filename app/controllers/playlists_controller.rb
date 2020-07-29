@@ -3,7 +3,7 @@ class PlaylistsController < ApplicationController
     before_action :authorize
 
     def index
-        @playlists = Playlist.all
+      @playlists = Playlist.search(params[:search])
     end
 
     def show
@@ -11,19 +11,22 @@ class PlaylistsController < ApplicationController
     end
 
     def new
+      
         @playlist = Playlist.new
     end
 
-    def create
-      @playlist = Playlist.create(playlist_params)
-      if @playlist.save
-        redirect_to @playlist
-      else
-        render :new
-      end
+    def create 
+        @playlist = Playlist.new(playlist_params)
+    
+        if @playlist.save
+          redirect_to @playlist
+        else
+          render :new
+        end
     end
     
     def edit
+      #byebug
 
     end
     
@@ -44,7 +47,7 @@ class PlaylistsController < ApplicationController
 
     private
     def playlist_params
-      params.require(:playlist).permit(:name, :user_id)
+      params.require(:playlist).permit(:name, :user_id, song_ids: [])
     end
 
     def find_params
