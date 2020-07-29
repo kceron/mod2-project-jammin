@@ -7,13 +7,13 @@ class Song < ApplicationRecord
   def self.search(search)
     # byebug
     if search.present?
-      Song.joins(:artist, :genre).where("artists.name like '%#{search}%' or title like '%#{search}%' or genres.name like '%#{search}%'")
+      Song.joins(:artist, :genre).where("artists.name like ? or title like ? or genres.name like ?", "%#{search}%", "%#{search}%", "%#{search}%") # how to alter this for apostrophes in the song titles
     else
       self.all
     end
   end
 
   def length_to_minutes_and_seconds
-    Time.at(self.duration).utc.strftime("%M:%S")
+    Time.at(self.duration).utc.strftime("%M minutes, %S seconds")
   end
 end

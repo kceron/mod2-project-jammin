@@ -23,4 +23,11 @@ class Playlist < ApplicationRecord
     end
   end
 
+  # length of playlist
+  def playlist_length
+    # add length of all songs and display as "- hours, - minutes, - seconds long"
+    length = self.songs.sum { |song| song.duration }
+    Time.at(length).utc.strftime("%H hours, %M minutes, and %S seconds")
+  end
+
 end

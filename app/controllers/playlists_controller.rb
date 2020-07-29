@@ -11,7 +11,6 @@ class PlaylistsController < ApplicationController
     end
 
     def new
-      
         @playlist = Playlist.new
     end
 
@@ -27,7 +26,6 @@ class PlaylistsController < ApplicationController
     
     def edit
       #byebug
-
     end
     
     def update

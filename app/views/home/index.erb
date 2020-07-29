@@ -3,9 +3,11 @@
 </center>
 
 <div>
-<h2><%= link_to "Create an account", new_user_path, id:"sign_up" %> <%= link_to "Log in", login_path, id:"log_in" %>
+<h2>
+  <%= link_to "Create an account", new_user_path, class: "sign_up" %> or <%= link_to "Log in", login_path, class: "log_in" %>
+</h2>
 </div>
-<div class="body">  <%= image_tag "tape.jpg" %>  </div>
+
 
 
 
