@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 2020_07_29_193556) do
     t.integer "duration"
     t.bigint "artist_id", null: false
     t.bigint "genre_id", null: false
-    t.string "source"
     t.string "embed_key"
     t.index ["artist_id"], name: "index_songs_on_artist_id"
     t.index ["genre_id"], name: "index_songs_on_genre_id"

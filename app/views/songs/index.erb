@@ -18,11 +18,9 @@
 <br>
 <% @songs.each do |song| %>
   <h3><%= song.title %></h3>
-   <%if song.source == "Spotify" %>
-         <iframe src="https://open.spotify.com/embed/track/<%= song.embed_key%>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> 
-    <% elsif song.source == "YouTube" %>
-     <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= song.embed_key%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-    <% end %>
+   
+  <iframe src="https://open.spotify.com/embed/track/<%= song.embed_key %>" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
   <%= form_tag '/song_playlists' do %>
   <%= hidden_field_tag "song_id", song.id %>
   <%= select_tag "playlist_id", options_for_select(Playlist.all.select { |p| p.user_id == session[:user_id] }.map { |p| [ p.name, p.id ] }), prompt: "Select a Playlist" %>
