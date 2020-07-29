@@ -1,9 +1,11 @@
 <h1>Your Jamms!</h1>
-
 <%= @playlist.name %>
 <br>
 <% @playlist.songs.each do |song| %>
     <%= song.title %> | <%= song.duration %><br>
 <% end %>
-
+<br><br>
+<% if @playlist.user_id == session[:user_id] %>
 <h2><%= link_to "Edit Playlist", edit_playlist_path, id:"" %> <%= link_to "Delete Playlist", @playlist, data: {:confirm => 'Are you sure?'}, :method => :delete %></h2>
+<% end %>
+
