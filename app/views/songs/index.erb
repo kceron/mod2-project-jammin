@@ -18,11 +18,9 @@
 <br>
 <% @songs.each do |song| %>
   <h3><%= song.title %></h3>
-  <ul>
-  <li>Artist: <%= song.artist.name %></li>
-  <li>Genre: <%= song.genre.name %></li>
-  <li>Length: <%= song.length_to_minutes_and_seconds %></li>
-  </ul>
+   
+  <iframe src="https://open.spotify.com/embed/track/<%= song.embed_key %>" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
   <%= form_tag '/song_playlists' do %>
   <%= hidden_field_tag "song_id", song.id %>
   <%= select_tag "playlist_id", options_for_select(Playlist.all.select { |p| p.user_id == session[:user_id] }.map { |p| [ p.name, p.id ] }), prompt: "Select a Playlist" %>
