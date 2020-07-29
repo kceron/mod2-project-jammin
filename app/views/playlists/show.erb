@@ -1,12 +1,43 @@
 <h1>Your Jamms!</h1>
-<%= @playlist.name %>
 <br>
+<h2><%= @playlist.name %></h2>
+<p>This playlist is <%= @playlist.playlist_length%> long.</p>
+<h3>Songs</h3>
 <% @playlist.songs.each do |song| %>
+
     <%= song.title %> | <%= song.length_to_minutes_and_seconds %><br>
-     
-<% end %>
-<br><br>
-<% if @playlist.user_id == session[:user_id] %>
-<h2><%= link_to "Edit Playlist", edit_playlist_path, id:"" %> <%= link_to "Delete Playlist", @playlist, data: {:confirm => 'Are you sure?'}, :method => :delete %></h2>
+    <%# <iframe src="https://open.spotify.com/embed/track/<%= song.track_id " width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> %>
+ <br>
+
 <% end %>
 
+<br><br>
+<% if @playlist.user_id == session[:user_id] %>
+<h4><%= link_to "Edit Playlist", edit_playlist_path, id:"" %> <%= link_to "Delete Playlist", @playlist, data: {:confirm => 'Are you sure?'}, :method => :delete %></h4>
+<% end %>
+
+
+<%# @embed_keys = 0by8c0tvXiwBHKkCpsvLNt %>
+
+<%# maybe add youtube or soundcloud %>
+<%# through adding a source column %>
+
+<%# parse while creating a song %>
+
+
+<%# <iframe src="https://open.spotify.com/embed/track/<%= song.track_id " width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> %>
+
+<%# - add two columns to our database: source and embed key
+    - re-seed DB
+    - gettings songs to show where they should 
+        - playlist
+        - song index
+    - write a form to add a new song 
+    - create method needs to parse the URL for the embed key
+
+
+    spotify:
+    <iframe src="https://open.spotify.com/embed/track/0F9at9W2UkP504cIxKE1K8" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    youtube:
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/6UEWJsljPVM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ %>
