@@ -1,5 +1,7 @@
 class SongsController < ApplicationController
 
+  before_action :authorize
+  
   def index
     @songs = Song.search(params[:search])
   end
@@ -7,6 +9,7 @@ class SongsController < ApplicationController
   def new
     @song = Song.new
   end
+
 
 
 

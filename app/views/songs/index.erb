@@ -5,11 +5,15 @@
   <datalist id="title">
     <% Song.all.each do |song| %>
       <option value="<%= song.title %>"></option>
-      <option value="<%= song.artist.name %>"></option>
-      <option value="<%= song.genre.name %>"></option>
+    <% end %>
+    <% Artist.all.each do |artist| %>
+      <option value="<%= artist.name %>"></option>
+    <% end %>
+    <% Genre.all.each do |genre| %>
+      <option value="<%= genre.name %>"></option>
     <% end %>
   </datalist>
-  <%= submit_tag "Search", title: nil %>
+  <%= submit_tag "Search" %>
 <% end %>
 
 <% @songs.each do |song| %>
@@ -17,6 +21,20 @@
   <ul>
   <li>Artist: <%= song.artist.name %></li>
   <li>Genre: <%= song.genre.name %></li>
-  <li>Length: <%= song.duration %></li>
+  <li>Length: <%= song.length_to_minutes_and_seconds %></li>
   </ul>
+  <%= form_tag '/song_playlists' do %>
+  <%= hidden_field_tag "song_id", song.id %>
+  <%= select_tag "playlist_id", options_for_select(Playlist.all.select { |p| p.user_id == session[:user_id] }.map { |p| [ p.name, p.id ] }), prompt: "Select a Playlist" %>
+  <%= submit_tag "Add to Playlist" %>
+  <% end %>
 <% end %>
+
+<%# add a drop down menu of playlists to each song that adds the song to one of your playlists and add a controller action to take the song id and playlist id and update the playlist 
+  - submit tag call update action
+  - add a controller action that adds the song to the playlist, in the SongPlaylist controller
+  - controller action will redirect you to the playlist page with the song added
+%>
+
+<%# select_tag "people", options_from_collection_for_select(@people, "id", "name"), prompt: "Select something"
+# => <select id="people" name="people"><option value="">Select something</option><option value="1">David</option></select> %>
