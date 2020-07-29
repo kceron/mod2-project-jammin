@@ -21,10 +21,13 @@
   <ul>
   <li>Artist: <%= song.artist.name %></li>
   <li>Genre: <%= song.genre.name %></li>
-  <li>Length: <%= song.duration %></li>
+  <li>Length: <%= song.length_to_minutes_and_seconds %></li>
   </ul>
-  <%= select_tag "playlists", options_for_select(Playlist.all.select { |p| p.user_id == session[:user_id] }.map { |p| p.name }), prompt: "Select a Playlist" %>
+  <%= form_tag '/song_playlists' do %>
+  <%= hidden_field_tag "song_id", song.id %>
+  <%= select_tag "playlist_id", options_for_select(Playlist.all.select { |p| p.user_id == session[:user_id] }.map { |p| [ p.name, p.id ] }), prompt: "Select a Playlist" %>
   <%= submit_tag "Add to Playlist" %>
+  <% end %>
 <% end %>
 
 <%# add a drop down menu of playlists to each song that adds the song to one of your playlists and add a controller action to take the song id and playlist id and update the playlist 
@@ -32,3 +35,6 @@
   - add a controller action that adds the song to the playlist, in the SongPlaylist controller
   - controller action will redirect you to the playlist page with the song added
 %>
+
+<%# select_tag "people", options_from_collection_for_select(@people, "id", "name"), prompt: "Select something"
+# => <select id="people" name="people"><option value="">Select something</option><option value="1">David</option></select> %>

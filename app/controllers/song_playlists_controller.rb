@@ -1,15 +1,15 @@
 class SongPlaylistsController < ApplicationController
   before_action :authorize
 
-  def edit
+  def new
 
   end
 
-  def update
-    byebug
+  def create
+    # byebsug
+    @song_playlist = SongPlaylist.create(song_id: params[:song_id], playlist_id: params[:playlist_id])
 
-
-    redirect_to 
+    redirect_to @song_playlist.playlist
   end
 
   private

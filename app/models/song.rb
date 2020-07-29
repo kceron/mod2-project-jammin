@@ -12,4 +12,8 @@ class Song < ApplicationRecord
       self.all
     end
   end
+
+  def length_to_minutes_and_seconds
+    Time.at(self.duration).utc.strftime("%M:%S")
+  end
 end
