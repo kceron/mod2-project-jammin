@@ -14,3 +14,10 @@
  *= require_self
  */
 
+.container .row.row-cols-3.mt-3 .col p {
+  margin-bottom: 0
+}
+
+.bottom_buttons {
+  margin-bottom: 30px;
+}

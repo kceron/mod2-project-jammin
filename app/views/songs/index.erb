@@ -1,30 +1,37 @@
 <h1>All Songs</h1>
-
-<%= form_tag songs_path, method: :get do %>
-  <%= text_field_tag :search, params[:search], list: "title" %>
-  <datalist id="title">
-    <% Song.all.each do |song| %>
-      <option value="<%= song.title %>"></option>
-    <% end %>
-    <% Artist.all.each do |artist| %>
-      <option value="<%= artist.name %>"></option>
-    <% end %>
-    <% Genre.all.each do |genre| %>
-      <option value="<%= genre.name %>"></option>
-    <% end %>
-  </datalist>
-  <%= submit_tag "Search" %>
-<% end %>
-<br>
-<% @songs.each do |song| %>
-  <h3><%= song.title %></h3>
-   
-  <iframe src="https://open.spotify.com/embed/track/<%= song.embed_key %>" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-
-  <%= form_tag '/song_playlists' do %>
-  <%= hidden_field_tag "song_id", song.id %>
-  <%= select_tag "playlist_id", options_for_select(Playlist.all.select { |p| p.user_id == session[:user_id] }.map { |p| [ p.name, p.id ] }), prompt: "Select a Playlist" %>
-  <%= submit_tag "Add to Playlist" %>
+<div class="search">
+  <%= form_tag songs_path, method: :get do %>
+    <%= text_field_tag :search, params[:search], list: "title" %>
+    <datalist id="title">
+      <% Song.all.each do |song| %>
+        <option value="<%= song.title %>"></option>
+      <% end %>
+      <% Artist.all.each do |artist| %>
+        <option value="<%= artist.name %>"></option>
+      <% end %>
+      <% Genre.all.each do |genre| %>
+        <option value="<%= genre.name %>"></option>
+      <% end %>
+    </datalist>
+    <%= submit_tag "Search" %>
   <% end %>
-  <br>
-<% end %>
+</div>
+<br>
+
+<div class="container">
+  <% @songs.each_slice(3) do |songs| %>
+    <div class="row row-cols-3 mt-3">
+    <% songs.each do |song| %>
+      <div class="col">
+      <p><%= song.title %></p>
+      <iframe src="https://open.spotify.com/embed/track/<%= song.embed_key %>" width="250" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      <%= form_tag '/song_playlists' do %>
+      <%= hidden_field_tag "song_id", song.id %>
+      <%= select_tag "playlist_id", options_for_select(Playlist.all.select { |p| p.user_id == session[:user_id] }.map { |p| [ p.name, p.id ] }), prompt: "Select a Playlist" %>
+      <%= submit_tag "Add to Playlist" %>
+      <% end %>
+      </div>
+    <% end %>
+    </div>
+  <% end %>
+</div>
