@@ -10,8 +10,15 @@
   <% @playlist.song_playlists.each do |song_playlist| %>
     <%= song_playlist.song.title %>    <%= song_playlist.song.length_to_minutes_and_seconds %> <%= button_to '🛑', song_playlist, method: :delete, params: {song_id: song_playlist.song.id, playlist_id: @playlist.id} %>
     <br>
-
 <% end %>
+
+
+<%# button_to '🛑', song_playlist, method: :delete, params: {song_id: song_playlist.song.id, playlist_id: @playlist.id} %>
+
+ <%# <button type="button" class="btn btn-secondary"> %>
+      <%# link_to "Remove", song_playlist, method: :delete, params: {song_id: song_playlist.song.id, playlist_id: @playlist.id} %>
+    <%# </button> %>
+
 
 
 

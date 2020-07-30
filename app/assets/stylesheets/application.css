@@ -16,6 +16,12 @@
 
 .container {
   margin-top: 30px;
+  margin-bottom: 30px;
+  max-width: 1000px;
+}
+
+.container-fluid {
+  padding: 0;
 }
 
 .container .row.row-cols-3.mt-3 .col p {
@@ -38,11 +44,35 @@ h1.user_greeting {
   text-align: center;
 }
 
+.navbar.navbar-expand-lg.navbar-light.navbar-custom {
+  background-color: black;
+}
+
 #jammin:hover{
   color: orange;
 }
 
 #image:hover {
+  color: orange;
+}
+
+#jammin {
+  color:white
+}
+
+#home-link {
+  color: white;
+}
+
+#home-link:hover {
+  color: orange;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
   color: orange;
 }
 
