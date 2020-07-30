@@ -25,11 +25,10 @@ class PlaylistsController < ApplicationController
     end
     
     def edit
-      #byebug
+     
     end
     
     def update
-      
         @playlist.update(playlist_params)
         if @playlist.save
           redirect_to @playlist
