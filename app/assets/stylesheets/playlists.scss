@@ -9,7 +9,8 @@ $theme-colors: (
 .list {
     list-style-type: none;
 }
-.list > li::before {   
+
+.list > h3::before {   
     content: '';   
     display: inline-block;   
     height: 40px;   
@@ -21,3 +22,5 @@ $theme-colors: (
     background-position: center center;
     vertical-align: middle;
 }
+
+

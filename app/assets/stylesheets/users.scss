@@ -2,4 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
+.list > h3::before {   
+    content: '';   
+    display: inline-block;   
+    height: 40px;   
+    width: 40px;    
+    background-size: 40px;   
+    background-image: url('https://toppng.com/uploads/preview/vinyl-record-11547075652vnimv7yara.png'); 
+    background-repeat: no-repeat;   
+    margin-right: 10px;
+    background-position: center center;
+    vertical-align: middle;
+}
