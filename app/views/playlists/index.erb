@@ -1,3 +1,5 @@
+
+<div class="text-center">
 <h1>Playlists!</h1>
 
 <%= form_tag playlists_path, method: :get do %>
@@ -10,10 +12,10 @@
   <%= submit_tag "Search", name: nil %>
 <% end %>
 <br>
-
+</div>
 <% @playlists.each do |playlist| %>
   <h3><%= link_to playlist.name, playlist %></h3> 
-  <ul>
+  <ul class="list">
     <li><%= pluralize(playlist.songs.count, 'song') %></li>
     <li>Created by: <%= playlist.user.name %></li>
   </ul>
