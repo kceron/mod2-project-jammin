@@ -88,3 +88,11 @@ h1.user_greeting {
   background-position: center center;
   vertical-align: middle;
 }
+
+.a-primary{
+  color: orange;
+}
+
+.a-primary:hover{
+  color: rgb(33, 185, 58);
+}
