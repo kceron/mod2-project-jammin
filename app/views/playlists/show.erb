@@ -2,6 +2,12 @@
 <br>
 <h2><%= @playlist.name %></h2>
 <p>This playlist is <%= @playlist.playlist_length%> long.</p>
+
+<button type="button" class="btn btn-secondary">
+    <%= mail_to '', "Share this Playlist", subject: "Checkout this Playlist!", body: "Listen here: http://localhost:3000/playlists/#{ @playlist.id }" %>
+</button>
+
+<br><br>
 <h3>Songs</h3>
 <ol>
     <% @playlist.songs.each do |song| %>
