@@ -1,20 +1,14 @@
 
-<h1>Welcome, <%= login.name %>!</h1>
-
-<h3>Playlists You've Created<h3>
+<h1 class="user_greeting">Welcome, <%= login.name %>!</h1>
+<br>
+<h3>Playlists You've Created</h3>
 <ul>
 <% @user.playlists.each do |playlist| %>
   <li><%=link_to playlist.name, playlist %></li>
 <% end %>
 </ul>
 
-<%= link_to "Create a New Playlist", new_playlist_path %>
-<br><br>
-<%= 
-  if login.id == @user.id 
-    button_to 'Delete This Profile', user_path(@user), {method: :delete} 
-  end
-%>
-
-
-
+<button type="button" class="btn btn-secondary"><%= link_to "Create a New Playlist", new_playlist_path %></button>
+  <% if login.id == @user.id %>
+    <button type="button" class="btn btn-secondary"><%= link_to "Delete this Profile", user_path(@user), method: :delete %> </button>
+  <% end %>
