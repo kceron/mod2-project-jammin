@@ -13,9 +13,22 @@ body.home h1 {
   }
 
 body.home h2 {
-    margin: 0;
-    padding-top: 15%;
+    margin: 5;
+    padding-top: 14%;
     text-align: center;
-    color: purple;
+}
+
+body.home button a {
+    color: orange;
+}
+
+#sign_up {
+    float: left;
+    margin-left: 10%;
+}
+
+#log_in {
+    float: right;
+    margin-right: 10%;
 }
 
