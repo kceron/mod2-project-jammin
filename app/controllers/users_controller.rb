@@ -25,12 +25,13 @@ class UsersController < ApplicationController
         end
     end
 
-    # def destroy
-    #     @user = User.find(params[:id])
-    #     @user.destroy
-    #     flash[:notice] = "Profile deleted."
-    #     redirect_to users_path
-    # end
+    def destroy
+        @user = User.find(params[:id])
+        session[:user_id] = nil
+        @user.destroy
+        flash[:notice] = "Profile deleted."
+        redirect_to root_path
+    end
      
     private
      
