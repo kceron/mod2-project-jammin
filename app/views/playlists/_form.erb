@@ -1,6 +1,6 @@
 <%= form_for @playlist  do |f| %>
   <%= f.hidden_field :user_id, value: "#{login.id}" %>
-  <p>Playlist <%= f.label :name %></p>
+  <h5><%= f.label :name, "Playlist Name:" %></h5>
 
   <%= f.text_field :name %>
   <%= ((f.submit "Update Name") if @playlist.id ) %>
@@ -12,6 +12,7 @@
     
     <%= button_to '🛑', song_playlist, method: :delete, params: {song_id: song_playlist.song.id, playlist_id: @playlist.id} %>
 <% end %>
+
 
 
 
