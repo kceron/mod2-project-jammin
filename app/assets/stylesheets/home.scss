@@ -5,12 +5,14 @@ body.home {
 }
 
 body.home h1 {
-    font-size: 60px;
+    font-size: 80px;
     font-family: 'Shadows Into Light Two';
     margin: 0;
-    padding: 10%;
+    padding: 9%;
     color: black;
+    
   }
+  
 
 body.home h2 {
     margin: 5;
@@ -30,5 +32,9 @@ body.home button a {
 #log_in {
     float: right;
     margin-right: 10%;
+}
+
+body.home h3 {
+    color: orange;
 }
 
