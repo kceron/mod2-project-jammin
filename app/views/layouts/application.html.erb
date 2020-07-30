@@ -15,10 +15,11 @@
 
     <body>
     <div class="container-fluid">
+      <!-- navbar -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-        <a class="navbar-brand" href="/">JammIn</a>
-
+        <a class="navbar-brand" id="jammin" href="/">JammIn</a>
+          <% if session[:user_id] %>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
            <li class="nav-item active">
@@ -32,8 +33,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="/users/:id">My Account</a>
                 <a class="dropdown-item" href="/playlists/new">Create a New Playlist</a>
-                <a class="dropdown-item" href="/users/:id" method="delete">Delete Account</a>
-
+                <%= link_to 'Delete Account', user_path(session[:user_id]), :method => :delete, class:"dropdown-item"%>
 
               </div>
             </li>
@@ -44,6 +44,7 @@
               <a class="nav-link" href="/logout"> Log Out <%# link_to "Log Out", logout_path, method: :delete %> </a>
             </li>
           </div>
+          <% end%>
         </nav>
       </div>
 
