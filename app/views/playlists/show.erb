@@ -15,6 +15,7 @@
 <br>
 <div class="bottom_buttons">
     <% if @playlist.user_id == session[:user_id] %>
-    <h4><%= link_to "Edit Playlist", edit_playlist_path, id:"" %>  <%= link_to "Delete Playlist", @playlist, data: {:confirm => 'Are you sure?'}, :method => :delete %></h4>
+    <button type="button" class="btn btn-secondary"><%= link_to "Edit Playlist", edit_playlist_path, id:"" %></button>  
+    <button type="button" class="btn btn-secondary"><%= link_to "Delete Playlist", @playlist, data: {:confirm => 'Are you sure?'}, :method => :delete %></button>
     <% end %>
 </div>
