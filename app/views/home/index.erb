@@ -6,14 +6,18 @@
 
 <div class="button">
 <h2>
-<button type="button" class="btn btn-secondary" id="sign_up"><%= link_to "Create an account", new_user_path, id: "sign_in" %> </button> 
-<button type="button" class="btn btn-secondary" id="log_in"><%= link_to "Log in", login_path, id: "log_in" %> </button>
+<% if login == nil %>
+  <button type="button" class="btn btn-secondary" id="sign_up"><%= link_to "Create an account", new_user_path, id: "sign_in" %> </button> 
+  <button type="button" class="btn btn-secondary" id="log_in"><%= link_to "Log in", login_path, id: "log_in" %> </button>
+<% end %>
 </h2>
 </div>
 
 <div>
 <h3>
-<button type="button" class="btn btn-secondary"><%= link_to "My Account", login, id: "current_user" %> </button>
+<% if login != nil %>
+  <button type="button" class="btn btn-secondary"><%= link_to "My Account", login, id: "current_user" %> </button>
+<% end %>
 </h3>
 <div>
 
