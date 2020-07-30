@@ -25,3 +25,10 @@
 .container.songs {
   margin-bottom: 30px;
 }
+
+
+.btn.btn-secondary.delete.button_to.profile {
+  background-color: transparent;
+  color: orange;
+  border: none;
+}
