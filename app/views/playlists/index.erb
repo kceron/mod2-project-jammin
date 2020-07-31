@@ -9,7 +9,9 @@
       <option value="<%= playlist.name %>"></option>
     <% end %>
   </datalist>
-  <%= submit_tag "Search", name: nil %>
+  <button type="button" class="btn btn-secondary" id="createedit">
+    <%= submit_tag "Search", name: nil, class: "button" %>
+  </button>
 <% end %>
 <br>
 </div>
