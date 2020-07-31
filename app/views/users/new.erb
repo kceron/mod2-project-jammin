@@ -10,5 +10,7 @@
   Username: <%= f.text_field :username %><br><br>
   Password: <%= f.password_field :password %><br><br>
   Password Confirmation: <%= f.password_field :password_confirmation %><br><br>
-  <%= f.submit "Submit" %>
+  <button type="button" class="btn btn-secondary" id="createedit">
+    <%= f.submit "Submit", class: "button" %>
+  </button>
 <% end %>

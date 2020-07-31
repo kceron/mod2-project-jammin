@@ -13,7 +13,9 @@
         <option value="<%= genre.name %>"></option>
       <% end %>
     </datalist>
-    <%= submit_tag "Search", class: 'button' %>
+    <button type="button" class="btn btn-secondary" id="createedit">
+      <%= submit_tag "Search", class: 'button' %>
+    </button>
   <% end %>
 </div>
 <br>
@@ -28,7 +30,9 @@
       <%= form_tag '/song_playlists' do %>
       <%= hidden_field_tag "song_id", song.id %>
       <%= select_tag "playlist_id", options_for_select(Playlist.all.select { |p| p.user_id == session[:user_id] }.map { |p| [ p.name, p.id ] }), prompt: "Select a Playlist" %>
-      <%= submit_tag "Add to Playlist", class: 'button' %>
+      <button type="button" class="btn btn-secondary" id="form">
+        <%= submit_tag "Add to Playlist", class: 'button' %>
+      </button>
       <% end %>
       </div>
     <% end %>

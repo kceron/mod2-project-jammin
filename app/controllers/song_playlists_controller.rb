@@ -6,7 +6,6 @@ class SongPlaylistsController < ApplicationController
   end
 
   def create
-    # byebsug
     @song_playlist = SongPlaylist.create(song_id: params[:song_id], playlist_id: params[:playlist_id])
 
     redirect_to @song_playlist.playlist
@@ -14,7 +13,9 @@ class SongPlaylistsController < ApplicationController
 
   def destroy
     @song_playlist = SongPlaylist.find_by(playlist_id: params[:playlist_id], song_id: params[:song_id])
+
     @song_playlist.destroy
+
     flash[:notice] = "Song deleted."
     redirect_to edit_playlist_path(params[:playlist_id])
   end
