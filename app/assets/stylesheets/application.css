@@ -99,4 +99,24 @@ h1.user_greeting {
 
 .col-md-6 mb-3 {
   position: center;
+input.buttonto {
+  background-color: transparent;
+  color: orange;
+  border: none;
+  font-size: 12px;
+}
+
+.btn.btn-secondary#form {
+  padding: .150rem .150rem;
+}
+
+input.button {
+  background-color: transparent;
+  color: orange;
+  border: none;
+  font-size: 14px;
+}
+
+.btn.btn-secondary#createedit {
+  padding: .250rem .250rem;
 }
