@@ -97,8 +97,15 @@ h1.user_greeting {
   color: rgb(33, 185, 58);
 }
 
+<<<<<<< HEAD
 .col-md-6 mb-3 {
   position: center;
+=======
+
+.col-md-6 mb-3 {
+  position: center;
+
+>>>>>>> 33ab8610b0ac5908b0a98f9d56766db0f8132c79
 input.buttonto {
   background-color: transparent;
   color: orange;
@@ -119,4 +126,8 @@ input.button {
 
 .btn.btn-secondary#createedit {
   padding: .250rem .250rem;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 33ab8610b0ac5908b0a98f9d56766db0f8132c79
 }
