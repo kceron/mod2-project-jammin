@@ -3,23 +3,20 @@
   <h5><%= f.label :name, "Playlist Name:" %></h5>
 
   <%= f.text_field :name %>
-  <%= ((f.submit "Update Name") if @playlist.id ) %>
-  <%= ((f.submit "Create Playlist") if !@playlist.id ) %>
-<% end %><br><br>
+  <button type="button" class="btn btn-secondary" id="createedit">
+    <%= ((f.submit "Update Name", class: "button") if @playlist.id ) %>
+    <%= ((f.submit "Create Playlist", class: "button") if !@playlist.id ) %>
+  </button>
+<% end %><br>
 
   <% @playlist.song_playlists.each do |song_playlist| %>
-    <%= song_playlist.song.title %>    <%= song_playlist.song.length_to_minutes_and_seconds %> <%= button_to '🛑', song_playlist, method: :delete, params: {song_id: song_playlist.song.id, playlist_id: @playlist.id} %>
-    <br>
+    <button type="button" class="btn btn-secondary" id="form">
+      <%= button_to 'Remove', song_playlist, method: :delete, params: {song_id: song_playlist.song.id, playlist_id: @playlist.id}, class: "buttonto" %>
+    </button>
+    <%= song_playlist.song.title %>
+    <%= song_playlist.song.length_to_minutes_and_seconds %> 
+    <br><br>
 <% end %>
-
-
-<%# button_to '🛑', song_playlist, method: :delete, params: {song_id: song_playlist.song.id, playlist_id: @playlist.id} %>
-
- <%# <button type="button" class="btn btn-secondary"> %>
-      <%# link_to "Remove", song_playlist, method: :delete, params: {song_id: song_playlist.song.id, playlist_id: @playlist.id} %>
-    <%# </button> %>
-
-
 
 
 
