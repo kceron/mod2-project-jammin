@@ -1,14 +1,30 @@
-<h2>Log In</h2>
-<p id="alert"><%= alert %></p>
 
-<%= form_tag sessions_path do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
-  <br><br>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-  <br><br>
-  <button type="button" class="btn btn-secondary" id="createedit">
-    <%= submit_tag "Log In", class: "button" %>
-  </button>
-<% end %>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="card col-md-3 style="width: 18rem;" style ='background-color: #FA9C6D;'>
+      <%= form_tag sessions_path do %>   
+        <h3 class="card-title my-4 mx-3 text-center .text-white font-bold">Log in</h3>
+        <p id="alert"><%= alert %></p>
+          <div class="form-group">
+        
+          <div class="col-md-12 mb-3">
+            <%= label_tag :username %>
+            <%= text_field_tag :username %>
+          </div>
+          <div class="col-md-12 mb-3">
+            <%= label_tag :password  %>
+            <%= password_field_tag :password %>
+          </div>
+          <div class="text-center">
+            <%= submit_tag "Login", type: "submit", class: "btn btn-dark" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+</div>
+

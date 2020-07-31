@@ -2,9 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-$theme-colors: (
-    "primary": #d95700
-);
 
 .list {
     list-style-type: none;
@@ -23,12 +20,16 @@ $theme-colors: (
     vertical-align: middle;
 }
 
+.indent {
+    text-indent: 10%;
+}
+
 .a-primary{
-    color: orange;
+    color: #FB703B;
   }
 
 .a-primary:hover{
-    color: rgb(33, 185, 58);
+    color: rgb(36, 190, 62);
 }
 
 
